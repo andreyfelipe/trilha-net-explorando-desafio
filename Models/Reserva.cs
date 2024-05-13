@@ -15,16 +15,17 @@ namespace DesafioProjetoHospedagem.Models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
-            // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
+            // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido -- OK
             // *IMPLEMENTE AQUI*
-            if (true)
+            if (Suite.Capacidade >= hospedes.Count )
             {
                 Hospedes = hospedes;
             }
             else
             {
-                // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
+                // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido -- OK
                 // *IMPLEMENTE AQUI*
+                throw new Exception ("Capacidade menor que o número de hóspedes recebido.");
             }
         }
 
@@ -35,23 +36,25 @@ namespace DesafioProjetoHospedagem.Models
 
         public int ObterQuantidadeHospedes()
         {
-            // TODO: Retorna a quantidade de hóspedes (propriedade Hospedes)
+            // TODO: Retorna a quantidade de hóspedes (propriedade Hospedes) -- OK
             // *IMPLEMENTE AQUI*
-            return 0;
+            int numhospedes = Hospedes.Count;
+            return numhospedes;
         }
 
         public decimal CalcularValorDiaria()
         {
-            // TODO: Retorna o valor da diária
+            // TODO: Retorna o valor da diária - OK
             // Cálculo: DiasReservados X Suite.ValorDiaria
             // *IMPLEMENTE AQUI*
-            decimal valor = 0;
+
+            decimal valor = Suite.ValorDiaria * DiasReservados;
 
             // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
             // *IMPLEMENTE AQUI*
-            if (true)
+            if (DiasReservados >= 10)
             {
-                valor = 0;
+                valor = (valor/10)*9 ;
             }
 
             return valor;
